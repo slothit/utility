@@ -1,8 +1,9 @@
 package dictionary
 
 import (
-	"aer/util/utility/dictionary-iso/data"
 	"encoding/json"
+
+	"github.com/slothit/utility/data"
 )
 
 const dataPath = "./data.json"
