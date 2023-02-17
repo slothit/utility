@@ -3,14 +3,16 @@ package dictionary
 import (
 	"encoding/json"
 	"os"
+	"path/filepath"
 )
 
-const dataPath = "../data/data.json"
+const dataPath = "../dictionary-iso/data/data.json"
 
 var ff []Country
 
 func Load() error {
-	b, err := os.ReadFile(dataPath)
+	p, _ := filepath.Abs(dataPath)
+	b, err := os.ReadFile(p)
 	if err != nil {
 		return err
 	}
