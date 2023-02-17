@@ -2,20 +2,15 @@ package dictionary
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
-	"path/filepath"
 )
 
-const dataPath = "../data/data.json"
+const dataPath = "./data.json"
 
 var ff []Country
 
 func Load() error {
-	pwd, _ := os.Getwd()
-	fmt.Println(pwd)
-	filename := filepath.Join(pwd, dataPath)
-	b, err := os.ReadFile(filename)
+	b, err := os.ReadFile(dataPath)
 	if err != nil {
 		return err
 	}
