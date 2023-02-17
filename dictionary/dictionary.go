@@ -43,6 +43,6 @@ func GetCountryByAlpha3(a3 string) (Country, error) {
 			return v, nil
 		}
 	}
+	return Country{}, nil
 
-	
 }
