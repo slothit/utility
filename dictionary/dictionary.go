@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-const dataPath = "data/data.json"
+const dataPath = "../data/data.json"
 
 var ff []Country
 
