@@ -1,3 +1,3 @@
-module gitlab.ae-rus.net/llip/utility/dictionary-iso
+module github.com/slothit/utility
 
 go 1.20
