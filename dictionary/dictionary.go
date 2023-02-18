@@ -2,23 +2,29 @@ package dictionary
 
 import (
 	"encoding/json"
-
+	"fmt"
 	"github.com/slothit/utility/data"
 )
 
-const dataPath = "./data.json"
+var (
+	countries []Country
+)
 
-var file = data.MustAsset("data/data.json")
-
-func GetAllCountries() ([]Country, error) {
-	var countries []Country
-	err := json.Unmarshal(file, &countries)
-	if err != nil {
-		return nil, err
-	}
-	return countries, nil
+func init() {
+	_ = json.Unmarshal(data.MustAsset("data/data.json"), &countries)
+	fmt.Println("1")
 }
 
-func GetCountryByAlpha3(a3 string) (Country, error) {
-	return Country{}, nil
+// GetAllCountries return all countries
+func GetAllCountries() []Country {
+	return countries
+}
+
+func GetCountryByAlpha3(a3 string) Country {
+	for _, v := range countries {
+		if v.Alpha3 == a3 {
+			return v
+		}
+	}
+	return Country{}
 }
